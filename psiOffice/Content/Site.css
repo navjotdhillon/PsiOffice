@@ -1,0 +1,17 @@
+﻿html {
+    font-size: 16px;
+}
+
+.dashboard .psi-chart {
+    height:20rem;
+}
+
+.psi-chart-container .psi-chart-heading {
+    font-size:1rem;
+    font-weight:bold;
+}
+
+.psi-chart-container .psi-chart-sub-heading {
+    font-size:.8rem;
+    color:gray;
+}

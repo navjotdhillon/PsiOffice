@@ -1,0 +1,166 @@
+﻿@model psiOffice.Controllers.ScheduleVM
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid" style="padding: 20px;">
+    <div class="row">
+        <div class="col-md-4">
+            <div style="padding-right: 10px;">
+                <div class="row heading">
+                    Request to Schedule
+                </div>
+                <table class="row">
+                    @foreach (var group in Model.req.GroupBy(item => item.owner_name))
+                    {
+                        <tr class="group-heading">
+                            <td colspan="6">@group.Key
+                            </td>
+                        </tr>
+                    
+                        foreach (var item in group)
+                        {
+                        <tr>
+                            <td style="color: Green; font-size: 1.4rem; width: 20px">@(item.invoice_flag == 1 ? "$" : "")
+                            </td>
+                            <td style="font-size: 1.1rem; width: 60px">@((int)item.issue_no)
+                            </td>
+                            <td>@item.customer
+                            </td>
+                            <td style="font-size: 1.2rem; font-weight: bold; width: 20px">@(item.issue_priority == 0 ? "N" : "R")
+                            </td>
+                            <td style="width: 90px;">@(((DateTime)item.due_date).ToString("MMM dd,yyyy"))
+                            </td>
+                            <td style="width: 30px;">@((int)item.estimate_time)
+                                h
+                            </td>
+                        </tr>
+                        <tr class="extra-bottom-padding">
+                            <td colspan="5" style="color: silver;">@item.issue_subject h
+                            </td>
+                            <td>@((int)item.c_days_stage)
+                                d
+                            </td>
+                        </tr>
+                        }
+
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div style="padding-right: 10px;">
+                <div class="row heading">
+                    Schedule
+                </div>
+                <table class="row">
+                    @foreach (var item in Model.sch)
+                    {
+                        <tr>
+                            <td rowspan="2">
+                            </td>
+                            <td style="color: Green; font-size: 1.4rem; width: 20px">@(item.design_status == "Q" ? "." : item.design_status == "A" ? "." : "N")
+                            </td>
+                            <td style="font-size: 1.1rem; width: 60px">@((int)item.issue_no)
+                            </td>
+                            <td>@item.customer
+                            </td>
+                            <td style="width: 90px;">@(((DateTime)item.due_date).ToString("MMM dd,yyyy"))
+                            </td>
+                            <td style="width: 80px">@item.owner_name
+                            </td>
+                            <td style="width: 30px;">@((int)item.estimate_time)
+                                h
+                            </td>
+                        </tr>
+                        <tr class="extra-bottom-padding">
+                            <td colspan="4" style="color: silver;">@item.issue_subject h
+                            </td>
+                            <td>@item.earmarked_name
+                            </td>
+                            <td>@((int)item.c_days_stage)
+                                d
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <div class="row heading">
+                    Request to Schedule
+                </div>
+                <table class="row">
+                    @foreach (var group in Model.prod.GroupBy(item => item.production_stage))
+                    {
+                        <tr class="group-heading">
+                            <td colspan="6">@group.Key
+                            </td>
+                        </tr>
+                        foreach (var item in group)
+                        {
+                        <tr>
+                            <td style="font-size: 1.1rem; width: 60px">@((int)item.issue_no)
+                            </td>
+                            <td>@item.customer
+                            </td>
+                            <td style="width: 90px;">@(((DateTime)item.due_date).ToString("MMM dd,yyyy"))
+                            </td>
+                            <td style="width: 100px;">@((int)item.reported_hours)
+                                h
+                            </td>
+                        </tr>
+                        <tr class="extra-bottom-padding">
+                            <td colspan="2" style="color: silver;">@item.issue_subject h
+                            </td>
+                            <td>@((int)item.c_days_stage)
+                                d
+                            </td>
+                            <td>@((int)item.est_complete_pct)
+                                %
+                            </td>
+                        </tr>
+                        }
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/kendo/2014.3.1119/kendo.common.min.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/kendo/2014.3.1119/kendo.default.min.css")">
+    <style>
+        .heading {
+            color: White;
+            background-color: Gray;
+            padding: 7px;
+            font-size: 1.2rem;
+        }
+        .group-heading {
+            background-color: Aqua;
+            font-size: 1.1rem;
+            padding: 7px;
+        }
+        tr {
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+        td {
+            padding: 1px;
+        }
+        .extra-bottom-padding {
+            padding-bottom: 5px;
+            border-bottom: 1px solid gray;
+        }
+    </style>
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Kendo/2014.3.1119/jszip.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Kendo/2014.3.1119/kendo.all.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Schedule/Schedule.js")"></script>
+}

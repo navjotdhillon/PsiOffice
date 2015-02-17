@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Default";
+}
+@section styles{
+    @Styles.Render("~/Content/kendoui")
+}
+@section scripts{
+    @Scripts.Render("~/bundles/kendoui")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Dashboard/ChartOne.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Dashboard/ChartTwo.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Dashboard/ChartThree.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Dashboard/Chart4.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Dashboard/Chart5.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Dashboard/Chart6.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Views/Dashboard/Chart7.js")"></script>
+}
+
+<h2>Default</h2>
+
+<div class="container-fluid dashboard">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="ChartOne" class="psi-chart-container">
+                <div class="psi-chart-heading">
+                    Workload
+                </div>
+                <div class="psi-chart-sub-heading">
+                    @*Jan 1, 2014 - Today*@
+                </div>
+                <div class="psi-chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="ChartTwo" class="psi-chart-container">
+                <div class="psi-chart-heading">
+                    Workload
+                </div>
+                <div class="psi-chart-sub-heading">
+                    @*Jan 1, 2014 - Today*@
+                </div>
+                <div class="psi-chart">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div id="ChartThree" class="psi-chart-container">
+                <div class="psi-chart-heading">
+                    Actual and Projected Sales - Programming
+                </div>
+                <div class="psi-chart-sub-heading">
+                    @*Jan 1, 2014 - Today*@
+                </div>
+                <div class="psi-chart">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Chart4" class="psi-chart-container">
+                <div class="psi-chart-heading">
+                    Projected Workload by Customer (Hours) 
+                </div>
+                <div class="psi-chart-sub-heading">
+                    @*Jan 1, 2014 - Today*@
+                </div>
+                <div class="psi-chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Chart5" class="psi-chart-container">
+                <div class="psi-chart-heading">
+                    Projected Workload by Customer (Hours) 
+                </div>
+                <div class="psi-chart-sub-heading">
+                    @*Jan 1, 2014 - Today*@
+                </div>
+                <div class="psi-chart">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Chart6" class="psi-chart-container">
+                <div class="psi-chart-heading">
+                    Projected Workload by Customer ($) 
+                </div>
+                <div class="psi-chart-sub-heading">
+                    @*Jan 1, 2014 - Today*@
+                </div>
+                <div class="psi-chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Chart7" class="psi-chart-container">
+                <div class="psi-chart-heading">
+                    Projected Workload by Customer ($) 
+                </div>
+                <div class="psi-chart-sub-heading">
+                    @*Jan 1, 2014 - Today*@
+                </div>
+                <div class="psi-chart">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
